@@ -1,0 +1,12 @@
+{
+  "name": "donutComics",
+  "displayName": "donutComics",
+  "expo": {
+    "name": "donutComics",
+    "slug": "donutComics",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

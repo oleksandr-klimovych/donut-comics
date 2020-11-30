@@ -1,0 +1,13 @@
+{
+	"locale": "en",
+	"HomeScreen": {
+		"Privacy": "Політика конфіденційності",
+		"Version": "Версія застосунку {{version}}"
+	},
+	"Notification": {
+		"FailGettingComicses": "FailGettingComicses"
+	},
+	"ComicsPage": {
+		"errorImageText": "Бідося (((("
+	}
+}
