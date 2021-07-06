@@ -1,21 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import { Provider } from 'react-redux';
+import { TranslatorProvider } from 'react-translate';
+import { PersistGate } from 'redux-persist/integration/react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {
+  ToastBannerProvider,
+  ToastBannerPresenter
+} from 'react-native-toast-banner';
+import {
+    useFonts,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_700Bold
+} from '@expo-google-fonts/montserrat';
+import { persistor, store } from './src/store';
+import RootScreen from './src/screens';
+import translation from './src/translation';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+export default () => {
+    const [fontsLoaded] = useFonts({
+        Montserrat_400Regular,
+        Montserrat_500Medium,
+        Montserrat_700Bold
+    });
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    if (!fontsLoaded) return <AppLoading />; 
+
+    return (
+        <Provider store={store}>
+            <TranslatorProvider translations={translation}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <SafeAreaProvider>
+                        <ToastBannerProvider>
+                            <RootScreen />
+                            <ToastBannerPresenter />
+                        </ToastBannerProvider>
+                    </SafeAreaProvider>
+                </PersistGate>
+            </TranslatorProvider>
+        </Provider>
+    );
+};
