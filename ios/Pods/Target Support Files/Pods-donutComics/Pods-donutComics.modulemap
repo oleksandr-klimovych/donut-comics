@@ -1,6 +1,0 @@
-module Pods_donutComics {
-  umbrella header "Pods-donutComics-umbrella.h"
-
-  export *
-  module * { export * }
-}
