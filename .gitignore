@@ -1,17 +1,1 @@
-<<<<<<< HEAD
-node_modules/
-.expo/
-npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
-
-# macOS
-.DS_Store
-=======
 node_modules
->>>>>>> 3513dc8487be5679766216922739594da4e935bc
